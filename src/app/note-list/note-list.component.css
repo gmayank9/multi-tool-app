@@ -1,0 +1,134 @@
+
+.page-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url('https://usagif.com/wp-content/uploads/2022/hqgif/ocean-wave-88-detailed-animation-wave-falling.gif') center/cover no-repeat;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    animation: fadeIn 2s ease-out;
+  }
+  
+  
+  .div-container {
+    width: 80%;
+    max-width: 600px;
+    background: rgba(255, 255, 255, 0.9); 
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
+    border-radius: 8px;
+    overflow: hidden;
+    padding: 16px;
+    animation: slideIn 1s ease-out;
+    position: relative;
+  }
+  
+  
+  .notes-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .note-item {
+    border-bottom: 1px solid #eeeeee;
+    padding: 16px;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  
+  .note-item:last-child {
+    border-bottom: none;
+  }
+  
+  
+  .note-item:hover {
+    background-color: #f9f9f9;
+  }
+  
+  
+  .note-title {
+    font-size: 1.5em;  
+    margin: 0 0 8px;
+    color: #333333;
+    font-family: 'Arial', sans-serif;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); 
+  }
+  
+  .note-content {
+    margin: 0 0 12px;
+    font-size: 1em;
+    color: #666666;
+    line-height: 1.5;
+    font-family: 'Verdana', sans-serif;
+  }
+  
+  .note-button {
+    font-size: 0.9em;
+    padding: 8px 12px;
+    margin-right: 8px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease; 
+  }
+  
+  
+  .note-button:hover {
+    transform: scale(1.05); 
+  }
+  
+  
+  .note-button-edit {
+    background-color: #007bff;
+    color: #ffffff;
+  }
+  
+  .note-button-edit:hover {
+    background-color: #0056b3;
+  }
+  
+  
+  .note-button-delete {
+    background-color: #dc3545;
+    color: #ffffff;
+  }
+  
+  .note-button-delete:hover {
+    background-color: #a71d2a;
+  }
+  
+  
+  h2 {
+    text-align: center; 
+    font-size: 2em;
+    color: #007bff; 
+    margin: 0 0 20px;
+    font-family: 'Arial', sans-serif;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); 
+  }
+  
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  
+  @keyframes slideIn {
+    from {
+      transform: translateY(-20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  

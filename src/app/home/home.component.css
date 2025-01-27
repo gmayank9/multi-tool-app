@@ -1,0 +1,92 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.outer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background: url('https://mir-s3-cdn-cf.behance.net/project_modules/1400/f1d0d572816947.5c2bcd89d519b.gif') center/cover no-repeat;
+  overflow: hidden;
+}
+
+@keyframes backgroundAnimation {
+  0% {
+    background: linear-gradient(135deg, #e0f7fa, #80deea);
+  }
+  50% {
+    background: linear-gradient(135deg, #b2ebf2, #4dd0e1);
+  }
+  100% {
+    background: linear-gradient(135deg, #e0f7fa, #80deea);
+  }
+}
+
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  transform: translateY(-100px);
+}
+.home-container h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #007bff;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  margin-top: 10px;
+  color: #555;
+}
+
+.options {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.option-button {
+  padding: 15px 30px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  border: 2px solid transparent;
+  border-radius: 25px;
+  background: dodgerblue;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.option-button:hover {
+  background: linear-gradient(135deg, #0056b3, #003f7f);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  transform: translateY(-3px);
+}
+
+.option-button:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+  .options {
+    flex-direction: column;
+    gap: 15px;
+    
+  }
+
+  .option-button {
+    width: 80%;
+    margin: 0 auto;
+  }
+}

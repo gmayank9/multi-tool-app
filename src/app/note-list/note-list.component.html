@@ -1,0 +1,20 @@
+<div class="page-container">
+    <div class="div-container">
+    <h2>Your Notes</h2>
+    <button class="note-button note-button-edit" (click)="onAddNote()">Add Note</button>
+    <ul class="notes-list">
+      @for(note of notes; track $index) {
+        <li class="note-item">
+          <h3 class="note-title">Note {{ $index + 1 }}: {{ note.title }}</h3>
+          <p class="note-content">{{ note.content }}</p>
+          <button class="note-button note-button-edit" (click)="onEdit(note.id)">Edit</button>
+          <button class="note-button note-button-delete" (click)="onDelete(note.id)">Delete</button>
+        </li>
+      }
+    </ul>
+  </div>
+  </div>
+
+
+
+  

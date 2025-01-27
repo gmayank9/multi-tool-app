@@ -1,0 +1,51 @@
+<div class="page">
+    <div class="container">
+      <!-- Calculator Section -->
+      <div class="calculator-container">
+        <div class="display">
+          <input
+            type="text"
+            [value]="previousValue ? previousValue + ' ' + operator + ' ' + display : display"
+            disabled
+          />
+        </div>
+        <div class="buttons">
+          <button (click)="appendToDisplay('7')">7</button>
+          <button (click)="appendToDisplay('8')">8</button>
+          <button (click)="appendToDisplay('9')">9</button>
+          <button (click)="setOperator('/')" class="operator">/</button>
+  
+          <button (click)="appendToDisplay('4')">4</button>
+          <button (click)="appendToDisplay('5')">5</button>
+          <button (click)="appendToDisplay('6')">6</button>
+          <button (click)="setOperator('*')" class="operator">*</button>
+  
+          <button (click)="appendToDisplay('1')">1</button>
+          <button (click)="appendToDisplay('2')">2</button>
+          <button (click)="appendToDisplay('3')">3</button>
+          <button (click)="setOperator('-')" class="operator">-</button>
+  
+          <button (click)="appendToDisplay('0')">0</button>
+          <button (click)="clearDisplay()" class="clear">C</button>
+          <button (click)="calculateResult()" class="equals">=</button>
+          <button (click)="setOperator('+')" class="operator">+</button>
+        </div>
+      </div>
+  
+      <!-- History Section -->
+      <div class="history-container">
+        <h3>Calculation History</h3>
+        <ul class="result-list">
+            @for(result of storedResults; track $index) {
+              <li class="result-item">
+                {{ $index + 1 }}: {{ result }}
+              </li>
+            }
+          </ul>
+        <button (click)="clearStoredResults()" class="clear-history">Clear History</button>
+        <button (click)="gotoHome()" class="clear-history">Back To Home</button>
+      </div>
+      
+    </div>
+  </div>
+  
