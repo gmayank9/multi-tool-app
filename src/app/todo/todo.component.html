@@ -2,38 +2,40 @@
   <h2 class="header">Todo List</h2>
   <div class="todo-container">
     <div class="input-container">
-      <input [(ngModel)]="newTask" (keydown.enter)="addTask()" placeholder="New Task" class="input-field" />
+      <input
+        [(ngModel)]="newTask"
+        (keydown.enter)="addTask()"
+        placeholder="New Task"
+        class="input-field"
+      />
 
       <button (click)="addTask()" class="add-button">Add</button>
     </div>
     <ul class="task-list">
       @for(task of tasks; track $index ){
-        <li class="task-item">
-          <label class="task-label">
-            <input
-              type="checkbox"
-              class="checkbox"
-              [checked]="task.completed"
-              (change)="toggleTask(task.id)"
-            />
-          </label>
-          @if(task.isEditing){
-            <input
-            [(ngModel)]="task.title"
-            class="task-title"
+      <li class="task-item">
+        <label class="task-label">
+          <input
+            type="checkbox"
+            class="checkbox"
+            [checked]="task.completed"
+            (change)="toggleTask(task.id)"
           />
-          <button (click)="saveUpdate(task.id)" class="save-button">
-            Save
-          </button>
-          }@else {  <span>{{ task.title }}</span>
-          <button (click)="enableEdit(task.id)" class="update-button">
-            Update
-          </button>}
-          
-          <button (click)="deleteTask(task.id)" class="delete-button">Delete</button>
-        </li>
+        </label>
+        @if(task.isEditing){
+        <input [(ngModel)]="task.title" class="task-title" />
+        <button (click)="saveUpdate(task.id)" class="save-button">Save</button>
+        }@else { <span>{{ task.title }}</span>
+        <button (click)="enableEdit(task.id)" class="update-button">
+          Update</button
+        >}
+
+        <button (click)="deleteTask(task.id)" class="delete-button">
+          Delete
+        </button>
+      </li>
       }
     </ul>
-    <button  class="delete-button" (click)="gotoHome()">Back to Home</button>
+    <button class="delete-button" (click)="gotoHome()">Back to Home</button>
   </div>
 </body>

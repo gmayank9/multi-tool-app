@@ -50,14 +50,10 @@
           placeholder="Write your note..."
         ></textarea>
       </div>
-      <button
-        type="submit"
-        [disabled]="!noteForm.form.valid"
-        (click)="addNOtes()"
-      >
+      <button type="submit">
         @if(id){<span>Update Note</span>}@else{
         <span>Add Note </span>
-        } 
+        }
       </button>
       <button class="go-to-list-button" type="button" (click)="gotoList()">
         Go To List

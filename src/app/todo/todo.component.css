@@ -6,7 +6,7 @@
   }
   
   body {
-    background: url('https://mir-s3-cdn-cf.behance.net/project_modules/1400/f246cb72816947.5c2bcd89d4d64.gif') no-repeat center center fixed;
+    background: url('../assets/images/Todo_component.gif') no-repeat center center fixed;
     background-size: cover;
     height: 100vh;
     width: 100vw;

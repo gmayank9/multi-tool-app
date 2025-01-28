@@ -4,11 +4,11 @@
     box-sizing: border-box;
   }
   .container {
-    display: flex; /* Make children align side by side */
-    justify-content: center; /* Center content horizontally */
-    align-items: flex-start; /* Align items at the top */
-    gap: 20px; /* Add space between calculator and history */
-    width: 100%; /* Ensure full width */
+    display: flex; 
+    justify-content: center; 
+    align-items: flex-start; 
+    gap: 20px; 
+    width: 100%; 
   }
   
   .page {
@@ -17,7 +17,7 @@
     align-items: center;
     height: 100vh;
     width: 100vw;
-    background: url('https://cdn.dribbble.com/users/1908366/screenshots/4461835/14.gif') center/cover no-repeat;
+    background: url('../assets/images/calculator_component.gif') center/cover no-repeat;
     overflow: hidden;
   }
   

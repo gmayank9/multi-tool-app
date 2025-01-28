@@ -4,11 +4,9 @@ import { RouterModule, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-home',
-  standalone: true, 
+  standalone: true,
   imports: [CommonModule, RouterModule],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+  styleUrl: './home.component.css',
 })
-export class HomeComponent {
-  
-}
+export class HomeComponent {}

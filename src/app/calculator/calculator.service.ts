@@ -4,7 +4,6 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class CalculatorService {
-
   constructor() {}
   calculate(operand1: number, operand2: number, operator: string): number {
     switch (operator) {

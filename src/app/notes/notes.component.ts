@@ -1,54 +1,59 @@
-import { Component, ElementRef, inject, OnInit, ViewChild } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  inject,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { NoteService, Note } from './notes.service';
 import { FormsModule, NgForm } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute, Router, RouterModule } from '@angular/router'; 
-
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 
 type StyleKeys = 'fontWeight' | 'fontStyle' | 'textDecoration';
 
 @Component({
   selector: 'app-note',
-  standalone: true, 
+  standalone: true,
   imports: [CommonModule, FormsModule, RouterModule],
   templateUrl: './notes.component.html',
-  styleUrls: ['./notes.component.css'], 
+  styleUrls: ['./notes.component.css'],
 })
 export class NoteComponent implements OnInit {
   @ViewChild('contentEditableArea') contentArea!: ElementRef<HTMLDivElement>;
-  routePath = '/note-list'
+  routePath = '/note-list';
   title: string = '';
   content: string = '';
   notes: Note[] = [];
   public id!: number;
-  editingNote: Note | null = null; 
+  editingNote: Note | null = null;
   currentStyle: { [key: string]: string } = {};
   styles = {
     fontWeight: 'normal',
     fontStyle: 'normal',
     textDecoration: 'none',
-    
   };
-  constructor(private noteService: NoteService , private router: Router, private route: ActivatedRoute) {}
+  constructor(
+    private noteService: NoteService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
     this.notes = this.noteService.getNotes();
-    this.route.queryParams.subscribe(params => {
-     this.id = Number(params['id']);
+    this.route.queryParams.subscribe((params) => {
+      this.id = Number(params['id']);
       if (this.id) {
         const notes = this.noteService.getNotes();
-        const selectedNote = notes.find(note => note.id === this.id) || null;
-  
-        if (selectedNote) {
+        const selectedNote = notes.find((note) => note.id === this.id) || null;
 
+        if (selectedNote) {
           this.title = selectedNote.title;
           this.content = selectedNote.content;
-          this.editingNote = selectedNote; 
+          this.editingNote = selectedNote;
         }
       }
     });
-    
-    
   }
 
   formatContent(styleKey: StyleKeys, styleValue: string): void {
@@ -72,8 +77,8 @@ export class NoteComponent implements OnInit {
     if (form.valid) {
       if (this.editingNote) {
         this.noteService.updateNote(
-          this.editingNote.id, 
-          this.title, 
+          this.editingNote.id,
+          this.title,
           this.content
         );
       } else {
@@ -83,15 +88,18 @@ export class NoteComponent implements OnInit {
           content: this.content,
         };
         this.noteService.addNote(newNote);
+        setTimeout(() => {
+          this.addNOtes();
+        }, 1000);
       }
-  
+
       this.title = '';
       this.content = '';
       this.editingNote = null;
       this.notes = this.noteService.getNotes();
     }
   }
-  
+
   deleteNote(id: number): void {
     this.noteService.deleteNote(id);
     this.notes = this.noteService.getNotes();
@@ -101,13 +109,13 @@ export class NoteComponent implements OnInit {
     this.title = note.title;
     this.content = note.content;
   }
-  addNOtes(){
-    this.router.navigate(['note/notes-list']);
-  }
-  gotoList(){
+  addNOtes() {
     this.router.navigate(['notes-list']);
   }
-  gotoHome(){
+  gotoList() {
+    this.router.navigate(['notes-list']);
+  }
+  gotoHome() {
     this.router.navigate(['']);
   }
 }
